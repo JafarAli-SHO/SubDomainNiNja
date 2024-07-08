@@ -3,7 +3,7 @@ SubDomainNiNja is a powerful and comprehensive subdomain enumeration tool design
 Install the require libraries using the command 
 # pip install requests tldextract argparse logging
 # Usage 
-# Add virustotal and security trails api key to the script  
+Add virustotal and security trails api key to the script in the def main () function
 # Python3 SubDomainNiNja -d target_domain 
 for recursively subdomain enumerantion use -r default is 1 
 # Python3 SubDomainNiNja -d target_domain -r 2
