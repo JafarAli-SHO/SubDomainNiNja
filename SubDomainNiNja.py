@@ -3,6 +3,26 @@ import tldextract
 import subprocess
 import argparse
 from queue import Queue
+import pyfiglet
+import random
+from termcolor import colored
+
+def list_fonts():
+    return pyfiglet.FigletFont.getFonts()
+
+def display_banner():
+    fonts = list_fonts()
+    selected_font = random.choice(fonts)
+    
+    # Create the pyfiglet text with the randomly selected font
+    figlet_text = pyfiglet.figlet_format("SubDomainNiNja", font=selected_font)
+    
+    # Colorize the text
+    colored_text = colored(figlet_text, color="magenta")
+    
+    # Print the banner
+    print(colored_text)
+    print(f"Font used: {selected_font}")
 
 class Colors:
     LYELLOW = '\033[33m'
@@ -98,6 +118,7 @@ def recursive_subdomain_discovery(domain, api_keys, depth=2):
 
 # Main function for SubDomainNiNja scan
 def SubDomainNiNja(domain, vt_api_key, st_api_key, depth):
+    display_banner()
     print(f"{Colors.LYELLOW}======== SubDomainNiNja Scanning: {domain} ========{Colors.RESTORE}")
 
     api_keys = {
